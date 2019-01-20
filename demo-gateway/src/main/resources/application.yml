@@ -1,0 +1,33 @@
+micronaut:
+  application:
+    name: gateway
+  server:
+    port: ${SERVICE_PORT:8081}
+    cors:
+      enabled: true
+  security:
+    enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            generator:
+              secret: pleaseChangeThisSecretForANewOne
+---
+consul:
+  client:
+    registration:
+      enabled: false
+    defaultZone: "${CONSUL_HOST:192.168.99.100}:${CONSUL_PORT:8500}"
+---
+#tracing:
+#  zipkin:
+#    enabled: true
+#    http:
+#      url: "http://${ZIPKIN_HOST:localhost}:${ZIPKIN_PORT:9411}"
+#      sampler:
+#        probability: 1.0 # Configuration taking 100% of the request to be processed by Zipkin. In a real production system, that could be overwhelming.
+---
+jackson:
+  dateFormat: dd.MM.yyyy

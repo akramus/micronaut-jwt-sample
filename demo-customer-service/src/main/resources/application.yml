@@ -1,0 +1,30 @@
+micronaut:
+  application:
+    name: customer-service
+  server:
+    port: ${SERVICE_PORT:-1}
+---
+#kafka:
+#  bootstrap:
+#    servers: "${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}"
+---
+consul:
+  client:
+    registration:
+      enabled: true
+    defaultZone: "${CONSUL_HOST:192.168.99.100}:${CONSUL_PORT:8500}"
+---
+
+---
+tracing:
+  zipkin:
+    enabled: true
+    http:
+      url: "http://${ZIPKIN_HOST:192.168.99.100}:${ZIPKIN_PORT:9411}"
+      sampler:
+        probability: 1.0 # Configuration taking 100% of the request to be processed by Zipkin. In a real production system, that could be overwhelming.
+---
+
+---
+
+---
