@@ -1,5 +1,8 @@
-package fr.demo.tutorial.auth;
+package fr.demo.tutorial.auth.security;
 
+import fr.demo.tutorial.auth.domain.HelpDeskAgent;
+import fr.demo.tutorial.auth.domain.HelpDeskAgentDetails;
+import fr.demo.tutorial.auth.mock.HelpDeskAgents;
 import io.micronaut.security.authentication.AuthenticationFailed;
 import io.micronaut.security.authentication.AuthenticationProvider;
 import io.micronaut.security.authentication.AuthenticationRequest;
@@ -15,11 +18,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthProvider implements AuthenticationProvider {
 
-    private final InsuranceAgents insuranceAgents;
+    private final HelpDeskAgents helpDeskAgents;
 
     @Override
     public Publisher<AuthenticationResponse> authenticate(AuthenticationRequest request) {
-        Optional<InsuranceAgent> agent = insuranceAgents.findByLogin((String) request.getIdentity());
+        Optional<HelpDeskAgent> agent = helpDeskAgents.findByLogin((String) request.getIdentity());
 
         if (agent.isPresent() && agent.get().passwordMatches((String) request.getSecret())) {
             return Flowable.just(createUserDetails(agent.get()));
@@ -28,7 +31,7 @@ public class AuthProvider implements AuthenticationProvider {
         return Flowable.just(new AuthenticationFailed());
     }
 
-    private InsuranceAgentDetails createUserDetails(InsuranceAgent agent) {
-        return new InsuranceAgentDetails(agent.getLogin(), agent.getAvatar(), agent.getAvailableProducts());
+    private HelpDeskAgentDetails createUserDetails(HelpDeskAgent agent) {
+        return new HelpDeskAgentDetails(agent.getLogin(), agent.getAvatar(), agent.getAvailableProducts());
     }
 }

@@ -3,6 +3,16 @@ micronaut:
     name: compteur-service
   server:
     port: ${SERVICE_PORT:-1}
+
+  security:
+    enabled: true
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          secret:
+            validation:
+              secret: pleaseChangeThisSecretForANewOne
 ---
 #kafka:
 #  bootstrap:

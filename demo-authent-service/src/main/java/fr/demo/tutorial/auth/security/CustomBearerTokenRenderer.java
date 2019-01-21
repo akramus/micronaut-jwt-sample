@@ -1,5 +1,6 @@
-package fr.demo.tutorial.auth;
+package fr.demo.tutorial.auth.security;
 
+import fr.demo.tutorial.auth.domain.HelpDeskAgentDetails;
 import io.micronaut.context.annotation.Replaces;
 import io.micronaut.security.authentication.UserDetails;
 import io.micronaut.security.token.jwt.render.AccessRefreshToken;
@@ -11,14 +12,14 @@ public class CustomBearerTokenRenderer extends BearerTokenRenderer {
 
     @Override
     public AccessRefreshToken render(UserDetails userDetails, Integer expiresIn, String accessToken, String refreshToken) {
-        if (userDetails instanceof InsuranceAgentDetails) {
+        if (userDetails instanceof HelpDeskAgentDetails) {
             return new CustomBearerAccessRefreshToken(
                     userDetails.getUsername(),
                     userDetails.getRoles(),
                     expiresIn,
                     accessToken,
                     refreshToken,
-                    ((InsuranceAgentDetails) userDetails).getAvatarUrl()
+                    ((HelpDeskAgentDetails) userDetails).getAvatarUrl()
             );
         }
 

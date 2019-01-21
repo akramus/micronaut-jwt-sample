@@ -1,4 +1,4 @@
-package fr.demo.tutorial.auth;
+package fr.demo.tutorial.auth.security;
 
 import io.micronaut.security.token.jwt.render.BearerAccessRefreshToken;
 import lombok.Getter;
@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import java.util.Collection;
 
 @NoArgsConstructor
-class CustomBearerAccessRefreshToken extends BearerAccessRefreshToken {
+public class CustomBearerAccessRefreshToken extends BearerAccessRefreshToken {
 
     @Getter
     private String avatar;
 
-    CustomBearerAccessRefreshToken(String username,
+    public CustomBearerAccessRefreshToken(String username,
                                    Collection<String> roles,
                                    Integer expiresIn,
                                    String accessToken,

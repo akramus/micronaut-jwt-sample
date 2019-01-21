@@ -21,6 +21,11 @@ micronaut:
           secret:
             generator:
               secret: pleaseChangeThisSecretForANewOne
+#        writer:
+#          header:
+#            enabled: true # <1>
+#          propagation:
+#            enabled: true # <2>
 ---
 #tracing:
 #  zipkin:

@@ -1,6 +1,7 @@
-package fr.demo.tutorial.auth;
+package fr.demo.tutorial.auth.security;
 
 import com.nimbusds.jwt.JWTClaimsSet;
+import fr.demo.tutorial.auth.domain.HelpDeskAgentDetails;
 import io.micronaut.context.annotation.Replaces;
 import io.micronaut.runtime.ApplicationConfiguration;
 import io.micronaut.security.authentication.UserDetails;
@@ -26,8 +27,8 @@ public class InsuranceAgentJWTClaimsSetGenerator extends JWTClaimsSetGenerator {
     @Override
     protected void populateWithUserDetails(JWTClaimsSet.Builder builder, UserDetails userDetails) {
         super.populateWithUserDetails(builder, userDetails);
-        if (userDetails instanceof InsuranceAgentDetails) {
-            builder.claim("avatar", ((InsuranceAgentDetails) userDetails).getAvatarUrl());
+        if (userDetails instanceof HelpDeskAgentDetails) {
+            builder.claim("avatar", ((HelpDeskAgentDetails) userDetails).getAvatarUrl());
         }
     }
 }
