@@ -9,11 +9,11 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Singleton
-public class InMemoryInsuranceAgentsDb implements HelpDeskAgents {
+public class InMemoryHelpDeskAgentsDb implements HelpDeskAgents {
 
     private Map<String, HelpDeskAgent> db = new ConcurrentHashMap<>();
 
-    public InMemoryInsuranceAgentsDb() {
+    public InMemoryHelpDeskAgentsDb() {
         add(new HelpDeskAgent("d.akram", "toujoursla", "static/avatars/jimmy_solid.png", Arrays.asList("TRI", "HSI", "FAI", "CAR")));
         add(new HelpDeskAgent("a.saka", "jesuisgentil", "static/avatars/danny_solid.png", Arrays.asList("TRI", "HSI")));
         add(new HelpDeskAgent("b.tahya", "admin", "static/avatars/admin.png", Arrays.asList("TRI", "HSI")));

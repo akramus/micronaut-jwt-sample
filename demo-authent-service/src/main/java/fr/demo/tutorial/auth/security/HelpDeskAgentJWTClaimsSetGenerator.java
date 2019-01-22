@@ -15,12 +15,12 @@ import javax.inject.Singleton;
 
 @Singleton
 @Replaces(bean = JWTClaimsSetGenerator.class)
-public class InsuranceAgentJWTClaimsSetGenerator extends JWTClaimsSetGenerator {
+public class HelpDeskAgentJWTClaimsSetGenerator extends JWTClaimsSetGenerator {
 
-    public InsuranceAgentJWTClaimsSetGenerator(TokenConfiguration tokenConfiguration,
-                                               @Nullable JwtIdGenerator jwtIdGenerator,
-                                               @Nullable ClaimsAudienceProvider claimsAudienceProvider,
-                                               @Nullable ApplicationConfiguration applicationConfiguration) {
+    public HelpDeskAgentJWTClaimsSetGenerator(TokenConfiguration tokenConfiguration,
+                                              @Nullable JwtIdGenerator jwtIdGenerator,
+                                              @Nullable ClaimsAudienceProvider claimsAudienceProvider,
+                                              @Nullable ApplicationConfiguration applicationConfiguration) {
         super(tokenConfiguration, jwtIdGenerator, claimsAudienceProvider, applicationConfiguration);
     }
 
