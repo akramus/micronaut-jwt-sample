@@ -15,9 +15,8 @@ public class InMemoryHelpDeskAgentsDb implements HelpDeskAgents {
 
     public InMemoryHelpDeskAgentsDb() {
         add(new HelpDeskAgent("d.akram", "toujoursla", "static/avatars/jimmy_solid.png", Arrays.asList("TRI", "HSI", "FAI", "CAR")));
-        add(new HelpDeskAgent("a.saka", "jesuisgentil", "static/avatars/danny_solid.png", Arrays.asList("TRI", "HSI")));
+        add(new HelpDeskAgent("a.saka", "legentil", "static/avatars/danny_solid.png", Arrays.asList("TRI", "HSI")));
         add(new HelpDeskAgent("b.tahya", "admin", "static/avatars/admin.png", Arrays.asList("TRI", "HSI")));
-        add(new HelpDeskAgent("f.jules", "presidentdelafifa", "static/avatars/agent1.png", Arrays.asList("TRI", "HSI")));
     }
 
     @Override
