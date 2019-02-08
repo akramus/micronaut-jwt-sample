@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "b0629c32-04b2-4c18-8d5c-4b8cec7022c7",
+		"name": "demo-jwt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=utf-8",
+						"type": "text"
+					},
+					{
+						"key": "null",
+						"value": "null",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"d.akram\",\n    \"password\": \"toujoursla\"\n}"
+				},
+				"url": "http://localhost:9060/login"
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkLmFrcmFtIiwibmJmIjoxNTQ5NTUxMjgwLCJyb2xlcyI6WyJUUkkiLCJIU0kiLCJGQUkiLCJDQVIiXSwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXZhdGFyIjoic3RhdGljXC9hdmF0YXJzXC9qaW1teV9zb2xpZC5wbmciLCJleHAiOjE1NDk2Mzc2ODAsImlhdCI6MTU0OTU1MTI4MH0.Er2qSHxJOl81TqjGn5fc6nKDOKIz5Qo_4Fh8Vc-imxQ"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=utf-8",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/plain",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9031/client/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9031",
+					"path": [
+						"client",
+						"list"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
